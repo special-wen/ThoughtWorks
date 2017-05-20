@@ -1,0 +1,63 @@
+Deepin下git的使用
+
+安装git
+sudo apt-get install git
+
+首先需要创建一个文件夹，文件夹应与githup上创建的仓库名一致
+
+创建文件夹：mkdir test(文件名/仓库名)
+
+进入到创建的仓库中：cd test
+
+之后执行操作 初始化仓库：git init   (成功会出现：已初始化空的Git仓库于.....)
+
+成功后：
+git add *
+git commit -m "abc" (""中的参数可以随便设置)
+
+之后可能需要在终端中登陆你的账号密码：git config --global user.email "you@example.com"
+git config --global usser.name "Your Name"
+之后重新执行命令：git commit -m "abc"
+如果还是不能执行操作，就可能需要添加一个文件在你的仓库中
+所以：touch 1（“文件名”）
+之后重新执行命令即可：
+git add *
+git commit -m "abc"
+git remote add origin https://github.com/gitname/test.git(可以直接去仓库中复制链接)
+如果创建成果，出现：
+
+之后：
+git push -u origin master
+可能需要输入你的账号和密码
+按照输入就好
+
+最后，因为我们以后会经常用到git,而每一次都需要输入自己的账号和密码，所以，推荐一个博客，关于ssh免密操作的http://blog.csdn.net/baidu_35085676/article/details/53456884
+
+自己总结一下：
+回到家目录中，执行一下命令
+ssh-keygen -t rsa -C "useremail@email.com"
+打开 .ssh 隐藏文件，查看 id_rsa.pub 文件
+cd id_rsa.pub
+复制粘贴内容，至github中的ssh key中即可
+
+如果之后发现还是需要账号密码的话，打开隐藏文件 .git/config ，替换url的格式。
+将
+url = https://github.com/Name/project.git
+一行改为
+url = git@github.com:Name/project.git
+即可。
+
+试试，发现成功了！
+
+
+
+
+
+
+
+
+
+
+
+
+
