@@ -32,7 +32,9 @@
 		<h4>1.UML的中文全称是：</h4>
 		<input type="text" name="uml" style="background: white">
 		<h4>2.对象最突出的特征是：</h4>
-		<input type="text" name="features" style="background: white">&nbsp;<input type="text" name="features" style="background: white">&nbsp;<input type="text" name="features" style="background: white">
+		<input type="text" name="features" style="background: white">&nbsp;
+		<input type="text" name="features" style="background: white">&nbsp;
+		<input type="text" name="features" style="background: white">
 	</from>
 	</div>
 	<div id="second" style="overflow: hidden">
@@ -98,17 +100,24 @@
 	</footer>
 </body>
 <script type="text/javascript">
+	//分数
 	var oGetMark = document.querySelector("#getMark");
+	//班级
 	var oClass = document.querySelector("#class");
+	//学号
 	var oNum = document.querySelector("#num");
+	//姓名
 	var oName = document.querySelector("#name");
 	oGetMark.onclick=function(){
 		//判断班级、名字、学号是否为空，并提示
 		if(oClass.value == ''||oNum.value == ''||oName.value == ''){
 			if(oClass.value == ''){
+				//提示框变为红色
 				oClass.style.borderColor='red';
+				//“班级”颜色变为红色
 				oClass.parentNode.style.color = 'red';
 			}else{
+				//初始值
 				oClass.style.borderColor='initial';
 				oClass.parentNode.style.color = '#000';
 			}
@@ -129,7 +138,7 @@
 			alert("This page says:请检查并填写必填信息");
 			return ;
 		}
-		//填空题分数
+
 		//封装函数返回选择的值
 		function get(el,val){
 			var oForm = document.querySelector(el);
@@ -150,7 +159,7 @@
 		// console.log(get("#que4",'vehicle'));
 		// console.log(get("#que5",'torf'));
 		// console.log(get("#que6",'torf'))
-		//这些是选择题
+		//这些是答案
 		if(get("#que1",'UML')=='b'){
 			sum+=10;
 		}
@@ -169,7 +178,7 @@
 		if(get("#que6",'torf')=='T'){
 			sum+=10;
 		}
-		//填空题
+		//填空题答案
 		var oUmlName = document.querySelector("input[name=uml]");
 		if(oUmlName.value == '统一建模语言'){
 			sum+=5;
