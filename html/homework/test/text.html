@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在线测试</title>
+	<link rel="stylesheet" href="text.css">
+	<style type="text/css">
+		#header .sub {
+		    padding-right: 220px;
+		}
+	</style>
+</head>
+<body>
+	<!--试卷标题-->
+	<h1>统一建模语言理论测试</h1>
+	<!--试卷介绍-->
+	<div id="header" style="overflow: hidden">
+		<div class="sub"><h2>考试科目:</h2><p>统一建模语言</p></div>
+		<div class="sub"><h2>时间:</h2><p>100分钟</p></div>
+		<div class="sub"><h2>得分:</h2><p id="mark"></p></div>
+	</div>
+	<div id = "column" style="overflow: hidden">
+	<from>
+		<h2>班级（必填）:&nbsp<input type = "text" name = "class" id = 'class' style="background: white"></h2>
+		<h2>学号（必填）:&nbsp<input type = "text" name = "num" id = 'num' style="background: white"></h2>
+		<h2>姓名（必填）:&nbsp<input type = "text" name = "name" id = 'name' style="background: white"></h2>
+	</from>
+	</div>
+	<div id = "first" style="overflow: hidden">
+	<h3>一、填空题  (每空5分，共20分)</h3>
+	<from>
+		<h4>1.UML的中文全称是：</h4>
+		<input type="text" name="uml" style="background: white">
+		<h4>2.对象最突出的特征是：</h4>
+		<input type="text" name="features" style="background: white">&nbsp;<input type="text" name="features" style="background: white">&nbsp;<input type="text" name="features" style="background: white">
+	</from>
+	</div>
+	<div id="second" style="overflow: hidden">
+	<h3>二、选择题（每题10分，共20分）</h3>
+	<h4>1.UML与软件工程的关系是：</h4>
+	<form id='que1'>
+	<input type="radio" name="UML" value="a">(A)UML就是软件工程<br>
+	<input type="radio" name="UML" value="b">(B)UML参与到软件工程中开发过程中的几个阶段<br>
+	<input type="radio" name="UML" value="c">(C)UML与软件工程无关<br>
+	<input type="radio" name="UML" value="d">(D)UML是软件工程的一部分
+	</form>
+	<form id='que2'>
+	<h4>2.Java语言支持:</h4>
+	<input type="radio" name="UML" value="a">(A)单继承<br>
+	<input type="radio" name="UML" value="b">(B)多继承<br>
+	<input type="radio" name="UML" value="c">(C)单继承和多继承都支持<br>
+	<input type="radio" name="UML" value="d">(D)单继承和多继承都不支持
+	</form>
+	</div>
+	<div id = "third" style="overflow: hidden">
+	<h3>三、多项选择题（每题10分，共20分）</h3>
+	<h4>1.用例的粒度分别为以下哪三种：</h4>
+	<form id='que3'>
+	<input type="checkbox" name="vehicle" value="a">(A)概述级<br>
+	<input type="checkbox" name="vehicle" value="b">(B)需求级<br>
+	<input type="checkbox" name="vehicle" value="c">(C)用户目标级<br>
+	<input type="checkbox" name="vehicle" value="d">(D)子功能级<br>
+	</form>
+	<h4>2：类图由以下哪三种部分组成</h4>
+	<form id='que4'>
+	<input type="checkbox" name="vehicle" value="a">(A)名称<br>
+	<input type="checkbox" name="vehicle" value="b">(B)属性(Name)<br>
+	<input type="checkbox" name="vehicle" value="c">(C)操作(Attribute)<br>
+	<input type="checkbox" name="vehicle" value="d">(D)方法(Function)<br>
+	</form>
+	</div>
+	<div id = "four" style="overflow: hidden">
+	<h3>四、判断题（每题10分，共20分）</h3>
+	<h4>1.用例图只是用于和客户交流和沟通的，用于确定需求</h4>
+	<div class="ture">
+	<form id='que5'>
+	<input type="radio" name="torf" value="T">T &nbsp;&nbsp;&nbsp;
+	<input type="radio" name="torf" value="F">F
+	</form>
+	</div>
+	<h4>2.在状态图中，终止状态在一个状态图中允许有多个</h4>
+	<div class="ture">
+	<form id='que6'>
+	<input type="radio" name="torf" value="T">T &nbsp;&nbsp;&nbsp;
+	<input type="radio" name="torf" value="F">F
+	</form>
+	</div>
+	</div>
+	<div id="five" style="overflow: hidden">
+	<h3>五、简单题（每题20分，共20分</h3>
+	<h4>1.简述什么是数据以及模型的表现形式？</h4>
+	<form>
+		<textarea rows="7" style="background: white" id='answer'></textarea>
+	</form>
+	</div>
+	<footer>
+		<button id="getMark">计算分数</button>
+	</footer>
+</body>
+<script type="text/javascript">
+	var oGetMark = document.querySelector("#getMark");
+	var oClass = document.querySelector("#class");
+	var oNum = document.querySelector("#num");
+	var oName = document.querySelector("#name");
+	oGetMark.onclick=function(){
+		//判断班级、名字、学号是否为空，并提示
+		if(oClass.value == ''||oNum.value == ''||oName.value == ''){
+			if(oClass.value == ''){
+				oClass.style.borderColor='red';
+				oClass.parentNode.style.color = 'red';
+			}else{
+				oClass.style.borderColor='initial';
+				oClass.parentNode.style.color = '#000';
+			}
+			if(oNum.value == ''){
+				oNum.style.borderColor='red';
+				oNum.parentNode.style.color = 'red';
+			}else{
+				oNum.style.borderColor='initial';
+				oNum.parentNode.style.color = '#000';
+			}
+			if(oName.value == ''){
+				oName.style.borderColor='red';
+				oName.parentNode.style.color = 'red';
+			}else{
+				oName.style.borderColor='initial';
+				oName.parentNode.style.color = '#000';
+			}
+			alert("This page says:请检查并填写必填信息");
+			return ;
+		}
+		//填空题分数
+		//封装函数返回选择的值
+		function get(el,val){
+			var oForm = document.querySelector(el);
+			var inputs = oForm.querySelectorAll('input[name='+val+']');
+			var inputValue='';
+			for(var i = 0 ; i < inputs.length ; i++){
+				if(inputs[i].checked){
+					inputValue += inputs[i].value;
+				}				
+			}
+			return inputValue;
+		}
+		//获取分数
+		var sum=0;
+		// console.log(get("#que1",'UML'));
+		// console.log(get("#que2",'UML'));
+		// console.log(get("#que3",'vehicle'));
+		// console.log(get("#que4",'vehicle'));
+		// console.log(get("#que5",'torf'));
+		// console.log(get("#que6",'torf'))
+		//这些是选择题
+		if(get("#que1",'UML')=='b'){
+			sum+=10;
+		}
+		if(get("#que2",'UML')=='a'){
+			sum+=10;
+		}
+		if(get("#que3",'vehicle')=='acd'){
+			sum+=10;
+		}
+		if(get("#que4",'vehicle')=='abc'){
+			sum+=10;
+		}
+		if(get("#que5",'torf')=='F'){
+			sum+=10;
+		}
+		if(get("#que6",'torf')=='T'){
+			sum+=10;
+		}
+		//填空题
+		var oUmlName = document.querySelector("input[name=uml]");
+		if(oUmlName.value == '统一建模语言'){
+			sum+=5;
+		}
+		//填空题第二题
+		var oFeatures = document.querySelectorAll("input[name=features]");
+		(function(){
+			var features={};
+			for(var i=0;i<oFeatures.length;i++){
+				features[oFeatures[i].value]=1;
+			}
+			console.log(features);
+			if(features['封装性']){
+				sum+=5;
+			}
+			if(features['继承性']){
+				sum+=5;
+			}
+			if(features['多态性']){
+				sum+=5;
+			}
+		})();
+		//简答题
+		var oAnswer = document.querySelector("#answer").value;
+		if(oAnswer=="模型是对现实世界的简化和抽象，模型是对所研究的系统、过程、事物或概念的一种表达形式，可以是实物，可以是某种图形，或者是一种数学表达式。"){
+			sum+=20;
+		}
+		//输出分数
+		console.log(sum);
+		var mark = document.querySelector("#mark");
+		mark.innerText=sum+"分";
+
+	}
+
+</script>
+</html>
